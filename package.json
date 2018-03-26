@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/watcher-cli",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "CLI utility to watch files and do stuff when they change.",
 	"author": "BrikCSS <https://github.com/brikcss>",
 	"contributors": [
