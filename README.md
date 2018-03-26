@@ -1,6 +1,6 @@
 # Watcher CLI
 
-> CLI to run [chokidar](https://www.npmjs.com/package/chokidar).
+> CLI utility to watch files and do stuff when they change. A tiny wrapper around [chokidar](https://www.npmjs.com/package/chokidar).
 
 <!-- Shields. -->
 <p>
@@ -39,6 +39,26 @@
 ```sh
 npm install -D @brikcss/watcher-cli
 ```
+
+## Usage
+
+- To watch files and run a shell command:
+
+	```sh
+	watch <source files> --exec="<command to execute>"
+	```
+
+- To watch files and run a script:
+
+	```sh
+	watch <source files> --script="<path to script>"
+	```
+
+- To watch files and run chokidar with a config file:
+
+	```sh
+	watch <source files> --config=<path to config>
+	```
 
 ## Environment support
 
