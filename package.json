@@ -1,0 +1,59 @@
+{
+	"name": "@brikcss/watcher-cli",
+	"version": "0.0.1",
+	"description": "CLI utility to watch files and do stuff when they change.",
+	"author": "BrikCSS <https://github.com/brikcss>",
+	"contributors": [
+		"The Zimmee <thezimmee@gmail.com>"
+	],
+	"homepage": "https://github.com/brikcss/watcher-cli",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brikcss/watcher-cli.git"
+	},
+	"bugs": {
+		"url": "https://github.com/brikcss/watcher-cli/issues"
+	},
+	"bin": {
+		"watch": "./bin/watcher-cli.js"
+	},
+	"directories": {
+		"bin": "./bin"
+	},
+	"files": [
+		"./bin"
+	],
+	"publishConfig": {
+		"tag": "dev",
+		"access": "public"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "node ./node_modules/.bin/pre-commit-lint",
+			"commit-msg": "commitlint -e $GIT_PARAMS && . ./node_modules/.bin/commit-msg-stamp-branch ${GIT_PARAMS}",
+			"pre-push": ". ./node_modules/.bin/pre-push-check-stage && echo \"\n[ok] Pushing code...\""
+		}
+	},
+	"scripts": {
+		"test": "concurrently --raw \"npm run test:lint\" \"npm run test:coverage\"",
+		"test:lint": "node ./node_modules/.bin/eslint ./bin/*.js",
+		"test:unit": "node ./node_modules/.bin/mocha \"./test/**/*.spec.js\" --reporter=mocha-better-spec-reporter --colors",
+		"test:coverage": "nyc mocha \"./test/**/*.spec.js\" --reporter=mocha-better-spec-reporter --colors",
+		"watch": "node ./bin/watcher-cli.js ./{bin,test}/*.js --exec=\"npm run test\"",
+		"semantic-release": "semantic-release"
+	},
+	"dependencies": {
+		"chokidar": "2.x",
+		"execa": "0.x",
+		"minimist": "1.x"
+	},
+	"devDependencies": {
+		"@brikcss/git-hooks": "1.x",
+		"@commitlint/cli": "6.x",
+		"concurrently": "3.x",
+		"mocha": "5.x",
+		"mocha-better-spec-reporter": "3.x",
+		"nyc": "11.x",
+		"semantic-release": "15.x"
+	}
+}
