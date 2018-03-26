@@ -60,6 +60,22 @@ npm install -D @brikcss/watcher-cli
 	watch <source files> --config=<path to config>
 	```
 
+## Configuration File
+
+The config file is simply passed to chokidar, and it accepts any of [chokidar's options](https://github.com/paulmillr/chokidar#getting-started).
+
+### Event listeners
+
+The `config.on` property is reserved for chokidar's event listeners, and is attached to the chokidar instance. Any chokidar event can be passed here.
+
+### Multiple watchers
+
+You may configure multiple watchers via the config file. To do this, add an `id` for each watcher you wish to create. To run the configuration for that id, simply run:
+
+```sh
+watch <source files> --config=<path to config> --id=<id>
+```
+
 ## Environment support
 
 | Node   | CLI   | UMD   | Browser   |
