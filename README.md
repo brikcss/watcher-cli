@@ -1,5 +1,7 @@
 # Watcher CLI
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/brikcss/watcher-cli.svg)](https://greenkeeper.io/)
+
 > CLI utility to watch files and do stuff when they change. A tiny wrapper around [chokidar](https://www.npmjs.com/package/chokidar).
 
 <!-- Shields. -->
